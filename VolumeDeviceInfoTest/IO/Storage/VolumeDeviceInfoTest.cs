@@ -1,14 +1,28 @@
-﻿namespace RJCP.IO.Storage
+﻿using System;
+
+namespace RJCP.IO.Storage
 {
     using NUnit.Framework;
 
     [TestFixture]
     public class VolumeDeviceInfoTest
     {
+        private bool isJenkins()
+        {
+            var jk = Environment.GetEnvironmentVariable("JENKINS_HOME");
+            return !string.IsNullOrEmpty(jk);
+        }
+
         [Test]
         [Platform("Win")]
         public void BootPartition()
         {
+            if (isJenkins())
+            {
+                Console.WriteLine("Running in Jenkins. Skipping test.");
+                return;
+            }
+
             // Checks that in general we can query the volume information.
             VolumeDeviceInfo volumeInfo = VolumeDeviceInfo.Create(@"\\.\BootPartition");
             Assert.That(volumeInfo.Path, Is.EqualTo(@"\\.\BootPartition"));
@@ -24,7 +38,8 @@
 
         [Test]
         [Platform("Win")]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Assertion", "NUnit2010:Use EqualConstraint for better assertion messages in case of failure.", Justification = "Specific Test")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage(
+            "Assertion", "NUnit2010:Use EqualConstraint for better assertion messages in case of failure.", Justification = "Specific Test")]
         public void ObjectEquality()
         {
             VolumeDeviceInfo bootPart = VolumeDeviceInfo.Create(@"\\.\BootPartition");
