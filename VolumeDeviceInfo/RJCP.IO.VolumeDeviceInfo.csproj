@@ -133,7 +133,7 @@
 
   <Target Name="CopyPackage" AfterTargets="Pack" Condition="'$(Configuration)' == 'Release' AND '$(OS)' == 'Windows_NT' ">
     <ItemGroup>
-      <NewNugetFile Include="bin\release\*.nupkg" />
+      <NewNugetFile Include="bin\release\*.$(PackageVersion).nupkg" />
     </ItemGroup>
     <Copy SourceFiles="@(NewNugetFile)" DestinationFolder="..\nuget\" />
   </Target>
