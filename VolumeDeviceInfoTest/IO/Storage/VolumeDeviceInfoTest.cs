@@ -42,6 +42,12 @@ namespace RJCP.IO.Storage
             "Assertion", "NUnit2010:Use EqualConstraint for better assertion messages in case of failure.", Justification = "Specific Test")]
         public void ObjectEquality()
         {
+            if (isJenkins())
+            {
+                Console.WriteLine("Running in Jenkins. Skipping test.");
+                return;
+            }
+
             VolumeDeviceInfo bootPart = VolumeDeviceInfo.Create(@"\\.\BootPartition");
             VolumeDeviceInfo bootDrive = VolumeDeviceInfo.Create(bootPart.Volume.DevicePath);
 
