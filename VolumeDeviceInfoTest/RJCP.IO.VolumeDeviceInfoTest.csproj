@@ -48,6 +48,10 @@
     <PackageReference Include="NUnit3TestAdapter" Version="4.0.0" />
     <PackageReference Include="RXMusic.CodeStyle" Version="22.8.25.137" />
     <ProjectReference Include="..\VolumeDeviceInfo\RJCP.IO.VolumeDeviceInfo.csproj" />
+    <PackageReference Include="coverlet.collector" Version="3.2.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
