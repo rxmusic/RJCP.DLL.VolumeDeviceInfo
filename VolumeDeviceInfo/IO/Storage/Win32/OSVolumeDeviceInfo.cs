@@ -4,7 +4,6 @@
     using System.Runtime.InteropServices;
     using System.Text;
     using Native.Win32;
-    using RJCP.Core.Environment;
     using static Native.Win32.Kernel32;
     using static Native.Win32.WinIoCtl;
 

@@ -1,7 +1,6 @@
 ﻿namespace RJCP.IO.Storage
 {
     using System;
-    using RJCP.Core.Environment;
 
     /// <summary>
     /// Gather additional information about Disks, Volumes and File systems for a given path.

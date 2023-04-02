@@ -3,7 +3,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net40;netcoreapp3.1</TargetFrameworks>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <OutputType>Exe</OutputType>
     <IsPackable>false</IsPackable>
     <Configurations>Debug;Release</Configurations>
@@ -60,6 +60,7 @@
     <PackageReference Include="RJCP.MSBuildTasks" Version="0.2.2">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="RXMusic.CodeStyle" Version="22.8.25.137" />
   </ItemGroup>
 
   <ItemGroup>
